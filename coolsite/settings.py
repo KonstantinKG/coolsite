@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'pdk8bcv@oy$o4asp2100ymrv(0y$&q
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['desolate-retreat-74082.herokuapp.com', 'wwww.desolate-retreat-74082.herokuapp.com']
 
 
 # Application definition
