@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'debug_toolbar',
     'captcha',
     'women.apps.WomenConfig'
@@ -164,3 +164,5 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'coolsite_cache'),
     }
 }
+
+django_heroku.settings(locals(),staticfiles=False)
