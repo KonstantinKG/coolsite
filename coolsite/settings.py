@@ -32,6 +32,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['desolate-retreat-74082.herokuapp.com','www.desolate-retreat-74082.herokuapp.com','127.0.0.1']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
