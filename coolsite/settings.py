@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -22,15 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'pdk8bcv@oy$o4asp2100ymrv(0y$&qy5#oh-i($2s=j4fa4uvp'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'pdk8bcv@oy$o4asp2100ymrv(0y$&qy5#oh-i($2s=j4fa4uvp')
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', 'pdk8bcv@oy$o4asp2100ymrv(0y$&qy5#oh-i($2s=j4fa4uvp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['desolate-retreat-74082.herokuapp.com','www.desolate-retreat-74082.herokuapp.com','127.0.0.1']
-
+ALLOWED_HOSTS = ['desolate-retreat-74082.herokuapp.com',
+                 'www.desolate-retreat-74082.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -83,21 +85,13 @@ WSGI_APPLICATION = 'coolsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-import dj_database_url
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
+#         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'databaseName',
 #         'USER': 'databaseUser',
 #         'PASSWORD': 'databasePassword',
@@ -156,10 +150,13 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+
 def show_toolbar(request):
     return True
+
+
 DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
 
 CACHES = {
@@ -168,5 +165,3 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'coolsite_cache'),
     }
 }
-
-
